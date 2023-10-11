@@ -1,4 +1,4 @@
-Sub StockAnalysisAllSheets()
+Sub Alphabetical_Testing()
     Dim ws As Worksheet
     Dim LastRow As Long
     Dim Ticker As String
@@ -6,16 +6,16 @@ Sub StockAnalysisAllSheets()
     Dim ClosingPrice As Double
     Dim YearlyChange As Double
     Dim PercentChange As Double
-    Dim TotalVolume As Double 
+    Dim TotalVolume As Double
     Dim SummaryRow As Long
     Dim MaxPercentIncrease As Double
     Dim MaxPercentDecrease As Double
-    Dim MaxTotalVolume As Double ' Change to Double
+    Dim MaxTotalVolume As Double
     Dim MaxPercentIncreaseTicker As String
     Dim MaxPercentDecreaseTicker As String
     Dim MaxTotalVolumeTicker As String
     
-    ' Initialize summary variables for the entire workbook
+    ' Set Variables for the summary
     MaxPercentIncrease = 0
     MaxPercentDecrease = 0
     MaxTotalVolume = 0
@@ -23,12 +23,12 @@ Sub StockAnalysisAllSheets()
     MaxPercentDecreaseTicker = ""
     MaxTotalVolumeTicker = ""
     
-    ' Loop through all worksheets (years) in the workbook
+    ' Loop all sheets in the whole book
     For Each ws In ThisWorkbook.Worksheets
-        ' Initialize variables for the current worksheet
+        ' set variables for current worksheet
         SummaryRow = 2
         TotalVolume = 0
-        OpeningPrice = ws.Cells(2, 3).Value 
+        OpeningPrice = ws.Cells(2, 3).Value
         ' Find the last row in the current worksheet
         LastRow = ws.Cells(ws.Rows.Count, 1).End(xlUp).Row
         
@@ -49,10 +49,10 @@ Sub StockAnalysisAllSheets()
                 End If
                 ' Conditional formatting for positive and negative changes
                 If YearlyChange >= 0 Then
-                    ws.Cells(SummaryRow, 10).Interior.Color = RGB(0, 255, 0) ' Green
+                    ws.Cells(SummaryRow, 10).Interior.Color = RGB(0, 255, 0)
                 Else
-                    ws.Cells(SummaryRow, 10).Interior.Color = RGB(255, 0, 0) ' Red
-                End If                
+                    ws.Cells(SummaryRow, 10).Interior.Color = RGB(255, 0, 0)
+                End If
                 ' Output data for the current year
                 ws.Cells(SummaryRow, 9).Value = Ticker ' Ticker
                 ws.Cells(SummaryRow, 10).Value = YearlyChange
@@ -119,4 +119,10 @@ Sub StockAnalysisAllSheets()
         MaxTotalVolumeTicker = ""
     Next ws
 End Sub
-​
+
+
+
+        
+     
+
+    
